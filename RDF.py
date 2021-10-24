@@ -246,6 +246,19 @@ class RDF_graph:
             blank_number+=2
             if(self.contains_bnode(o)):
                 case+=2
+        if(case == 1):
+            triplets_to_be_rehashed = [triplet for triplet in self.triplets_collection if (
+                    (triplet[0].name == s.name and not triplet[2].is_blank) or (triplet[2].name == s.name and not triplet[0].is_blank))]
+        elif(case == 2):
+            triplets_to_be_rehashed = [triplet for triplet in self.triplets_collection if (
+                    (triplet[0].name == o.name and not triplet[2].is_blank) or (triplet[2].name == o.name and not triplet[0].is_blank))]
+        elif(case == 3):
+            triplets_to_be_rehashed = [triplet for triplet in self.triplets_collection if (
+                    (triplet[0].name == s.name and not triplet[2].is_blank) or (triplet[2].name == s.name and not triplet[0].is_blank) or
+                    (triplet[0].name == o.name and not triplet[2].is_blank) or (triplet[2].name == o.name and not triplet[0].is_blank))]
+        if(case!=0):
+            totality_to_subtract = sum([int(hashstring(prepare_single_triplet(triplet[0],triplet[1],triplet[2])),16) for triplet in triplets_to_be_rehashed])
+
         self.add_RDF_triple(triplet)
 
         if(s.is_blank_node()):
@@ -311,27 +324,62 @@ class RDF_graph:
 
             struct_number = old_blank_node.structure_number
             rehashed_wcc = self.weakly_cc[struct_number]
+
             ##altering the wcc if necessary
             if (other_node.is_blank):
                 other_node.structure_number = struct_number
                 rehashed_wcc.add_node(other_node.name)
                 if(case == 1):
                     other_node.structure_level = old_blank_node.structure_level + 1
-                    rehashed_wcc.add_edge(old_blank_node,other_node)
+                    rehashed_wcc.add_edge(old_blank_node.name,other_node.name)
                 else:
-                    other_node.structure_level = 0 #in this case other node has no predecessor in this structure.
-                    rehashed_wcc.add_edge(other_node, old_blank_node)
+                    rehashed_wcc.add_edge(other_node.name, old_blank_node.name)
+                    prepare_single_component(self, rehashed_wcc, preparing=True)
             wcc_hash_value = int(hashstring(prepare_single_component(self, rehashed_wcc, preparing=False), Hashtype),16)
             if (other_node.is_blank):
                 self.hash_value= hex(int(self.hash_value, 16) - self.component_hashvalue[struct_number] + wcc_hash_value)
             else:
                 self.hash_value = hex(int(self.hash_value, 16) - self.component_hashvalue[struct_number] + wcc_hash_value + int(hashstring(prepare_single_triplet(s,p,o)),16))
+            totality_to_be_added = 0
+            for triplet in triplets_to_be_rehashed:
+                totality_to_be_added+=int(hashstring(prepare_single_triplet(triplet[0],triplet[1],triplet[2])),16)
+            print(totality_to_subtract, totality_to_be_added)
+            print("Hashed structure value:",wcc_hash_value,sep='\t')
+            self.hash_value = hex(int(self.hash_value, 16) - totality_to_subtract + totality_to_be_added)
+
             self.component_hashvalue[struct_number] = wcc_hash_value
 
-        #########Case 3 -- B(G) structure has been altered and two structures might need to be merged
+        #########Case 3 -- both ends are blanks present within graph
+        ######### Here, B(G) structure has been altered and two structures might need to be merged
         elif(case == 3):
-            0;
+            ###We have two situations. In the first one, let us assume that both s and o belong to the same structure
+            if(s.structure_number == o.structure_number):
+                struct_number = s.structure_number
+                rehashed_wcc = self.weakly_cc[struct_number]
+                rehashed_wcc.add_edge(s.name,p.name)
+                structure_blanks = {node.name:node for node in self.weakly_cc[struct_number].nodes()}
+                if(cycle_detection(structure_blanks)):
+                    print("Adding the edge to graph would introduce vicious-cycle!")
+                    return False
+                else:
+                    o.structure_level = max(s.structure_level + 1, o.structure_level)
+                    wcc_hash_value = int(hashstring(prepare_single_component(self, rehashed_wcc, preparing=False), Hashtype),16)
+                    self.hash_value= hex(int(self.hash_value, 16) - self.component_hashvalue[struct_number] + wcc_hash_value)
+                    self.component_hashvalue[struct_number] = wcc_hash_value
+            else:
+                firstcc = self.weakly_cc[s.structure_number]
+                secondcc = self.weakly_cc[o.structure_number]
+                for node in secondcc.Nodes():
+                    self.blanks[node].structure_number = s.structure_number ##Combined sets
+                new_cc = nx.union(firstcc,secondcc)
+                prepare_single_component(self, new_cc, preparing=True)
+                wcc_hash_value = int(hashstring(prepare_single_component(self, new_cc, preparing=False), Hashtype), 16)
+                self.hash_value = hex(int(self.hash_value, 16) - self.weakly_cc[o.structure_number]
+                                      - self.component_hashvalue[s.structure_number] + wcc_hash_value)
+                self.component_hashvalue[s.structure_number] = wcc_hash_value
+                self.component_hashvalue.pop(o.structure_number)
 
+        ###Apply modulo if the operations have taken us outside of the range of standard hash values.
         self.hash_value = hex(int(self.hash_value,16) % (2**256))
 
 
@@ -342,7 +390,7 @@ class RDF_graph:
 ### Reads an RDF triple from a given string.
 ### We assume that RDF triples are written
 ### as subject-predicate-object, separated by tabs.
-### Returns a triplet consisring of subject/predicate/object.
+### Returns a triplet consisting of subject/predicate/object.
 
 def read_RDF_triple(triple):
     s,p,o = triple.split("\t") #this is purely for test methods,
@@ -457,6 +505,8 @@ def prepare_single_triplet(subject,predicate,object):
     conversion_value += obj
     return conversion_value
 ###############################################################
+
+
 
 ###############################################################
 ### Searches for the blank node tree structures

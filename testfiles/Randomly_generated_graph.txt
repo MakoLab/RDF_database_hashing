@@ -1,13 +1,13 @@
-blank1Individual	Knows	blank2Character
-blank1Individual	Ignores	blank4Person
-blank3Human Being	Loves	blank4Person
-blank0Character	Knows	blank2Character
-blank3Human Being	Ignores	blank4Person
-blank1Individual	Likes	blank4Person
-blank3Human Being	Acknowledges	blank4Person
-blank0Character	Hates	blank4Person
-EvelynY1I9P32	Acknowledges	EvelynCKPVRP0
-EvelynY1I9P32	Likes	ElijahDVR02S3
-ElijahDVR02S3	Likes	EvelynCKPVRP0
-EvelynY1I9P32	Loves	Alexander7GDGXF4
-EvelynY1I9P32	Ignores	blank2Character
+blank0Character	Loves	blank2Human Being
+blank0Character	Knows	blank2Human Being
+blank1Character	Ignores	blank4Brunette
+blank1Character	Ignores	blank4Brunette
+blank3Individual	Hates	blank4Brunette
+blank0Character	Loves	blank2Human Being
+blank3Individual	Acknowledges	blank4Brunette
+blank2Human Being	Knows	blank3Individual
+AvaZM89MK0	Enjoys	blank1Character
+Henry5E0ILP1	Ignores	EmmaBADSFQ3
+EmmaBADSFQ3	Enjoys	Henry5E0ILP1
+blank3Individual	Knows	AmeliaF6HRFH2
+AvaZM89MK0	Knows	Henry5E0ILP1

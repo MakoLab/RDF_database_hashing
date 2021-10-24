@@ -69,5 +69,5 @@ def generate_random_RDF_graph(number_of_blanks, number_of_ground_nodes, number_o
 
 ####Testing time!####
 
-R = generate_random_RDF_graph(number_of_blanks=5, number_of_ground_nodes=5, number_of_BG_edges=8, number_of_grounded_edges=5,ratio=0.7)
+R = generate_random_RDF_graph(number_of_blanks=7, number_of_ground_nodes=5, number_of_BG_edges=6, number_of_grounded_edges=5,ratio=0.7)
 R.to_file(".\\testfiles\\Randomly_generated_graph.txt")

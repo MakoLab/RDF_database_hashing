@@ -1,0 +1,14 @@
+blank2Silhouette	Enjoys	blank3Individual
+blank2Silhouette	Acknowledges	blank4Personage
+blank0Creature	Enjoys	blank3Individual
+blank1Silhouette	Enjoys	blank3Individual
+blank2Silhouette	Knows	blank3Individual
+blank3Individual	Knows	blank4Personage
+blank2Silhouette	Acknowledges	blank4Personage
+blank3Individual	Acknowledges	blank4Personage
+JamesVQ0LQ71	Likes	CharlotteAXBY930
+EmmaIBM3773	Enjoys	JamesZUB1HP2
+HarperJLTU2X4	Hates	EmmaIBM3773
+JamesVQ0LQ71	Knows	CharlotteAXBY930
+JamesVQ0LQ71	Enjoys	blank2Silhouette
+blank2Silhouette	Loves	blank12Edgyboy
