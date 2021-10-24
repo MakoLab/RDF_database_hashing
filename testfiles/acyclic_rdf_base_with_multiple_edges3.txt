@@ -1,0 +1,8 @@
+blanka	pred1	blankb
+blankb	pred2	blankc
+blanka	pred7	blankb
+blanka	pred8	blankb
+blankc	pred3	blankd
+blanke	pred4	blankf
+blankf	pred5	blankg
+blanka	pred6	blankb

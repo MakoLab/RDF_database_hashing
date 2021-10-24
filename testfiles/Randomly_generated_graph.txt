@@ -1,0 +1,13 @@
+blank1Human Being	Loves	blank2Silhouette
+blank2Silhouette	Knows	blank4Silhouette
+blank2Silhouette	Ignores	blank4Silhouette
+blank1Human Being	Knows	blank4Silhouette
+blank3Character	Enjoys	blank4Silhouette
+blank0Silhouette	Loves	blank4Silhouette
+blank0Silhouette	Hates	blank4Silhouette
+blank0Silhouette	Loves	blank3Character
+Isabella0FK7EJ2	Enjoys	SophiaHSPL1Y0
+Harper80E6JY4	Likes	SophiaHSPL1Y0
+blank1Human Being	Ignores	HarperFDQS2Q1
+blank0Silhouette	Acknowledges	SophiaHSPL1Y0
+Harper80E6JY4	Knows	Evelyn3OT1HB3
