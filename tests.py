@@ -47,7 +47,7 @@ def test_randomly_generated_RDF_file_should_be_readable_and_acyclic_and_hashable
     assert (len(RDF.hash_database(RDFgraph))>=0)
     f.close()
 
-def test_case_1_two_new_grounded_nodes():
+def test_case_0_two_new_grounded_nodes():
     e = open(".\\testfiles\\Incrementation_testing_case_1_1.txt", "r")
     f = open(".\\testfiles\\Incrementation_testing_case_1_1a.txt", "r")
     RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
@@ -60,7 +60,7 @@ def test_case_1_two_new_grounded_nodes():
     e.close()
     f.close()
 
-def test_case_1_one_new_grounded_node_variant_one():
+def test_case_0_one_new_grounded_node_variant_one():
     e = open(".\\testfiles\\Incrementation_testing_case_1_1.txt", "r")
     f = open(".\\testfiles\\Incrementation_testing_case_1_1b.txt", "r")
     RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
@@ -72,7 +72,7 @@ def test_case_1_one_new_grounded_node_variant_one():
     e.close()
     f.close()
 
-def test_case_1_two_new_blank_nodes():
+def test_case_0_two_new_blank_nodes():
     e = open(".\\testfiles\\Incrementation_testing_case_1_1.txt", "r")
     f = open(".\\testfiles\\Incrementation_testing_case_1_1c.txt", "r")
     RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
@@ -87,7 +87,7 @@ def test_case_1_two_new_blank_nodes():
     e.close()
     f.close()
 
-def test_case_1_one_new_grounded_node_variant_two():
+def test_case_0_one_new_grounded_node_variant_two():
     e = open(".\\testfiles\\Incrementation_testing_case_1_1.txt", "r")
     f = open(".\\testfiles\\Incrementation_testing_case_1_1d.txt", "r")
     RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
@@ -99,7 +99,7 @@ def test_case_1_one_new_grounded_node_variant_two():
     e.close()
     f.close()
 
-def test_case_1_two_existing_grounded_nodes():
+def test_case_0_two_existing_grounded_nodes():
     e = open(".\\testfiles\\Incrementation_testing_case_1_1.txt", "r")
     f = open(".\\testfiles\\Incrementation_testing_case_1_1e.txt", "r")
     RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
@@ -111,7 +111,7 @@ def test_case_1_two_existing_grounded_nodes():
     e.close()
     f.close()
 
-def test_case_1_one_existing_grounded_node_variant_one():
+def test_case_0_one_existing_grounded_node_variant_one():
     e = open(".\\testfiles\\Incrementation_testing_case_1_1.txt", "r")
     f = open(".\\testfiles\\Incrementation_testing_case_1_1f.txt", "r")
     RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
@@ -123,7 +123,7 @@ def test_case_1_one_existing_grounded_node_variant_one():
     e.close()
     f.close()
 
-def test_case_1_one_existing_grounded_node_variant_two():
+def test_case_0_one_existing_grounded_node_variant_two():
     e = open(".\\testfiles\\Incrementation_testing_case_1_1.txt", "r")
     f = open(".\\testfiles\\Incrementation_testing_case_1_1g.txt", "r")
     RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
@@ -135,7 +135,7 @@ def test_case_1_one_existing_grounded_node_variant_two():
     e.close()
     f.close()
 
-def test_case_1_one_existing_grounded_node_variant_three():
+def test_case_0_one_existing_grounded_node_variant_three():
     e = open(".\\testfiles\\Incrementation_testing_case_1_1.txt", "r")
     f = open(".\\testfiles\\Incrementation_testing_case_1_1h.txt", "r")
     RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
@@ -147,12 +147,62 @@ def test_case_1_one_existing_grounded_node_variant_three():
     e.close()
     f.close()
 
-def test_case_1_one_existing_grounded_node_variant_four():
+def test_case_0_one_existing_grounded_node_variant_four():
     e = open(".\\testfiles\\Incrementation_testing_case_1_1.txt", "r")
     f = open(".\\testfiles\\Incrementation_testing_case_1_1i.txt", "r")
     RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
     RDF.hash_database(RDFgraph)
     RDFgraph.hash_increment_triple("JamesVQ0LQ71\tKnows\tblank6Mama")
+    RDFgraph2 = RDF.read_RDF_graph(f.read().split('\n'))
+    afterincrement = RDF.hash_database(RDFgraph2)
+    assert (afterincrement == RDFgraph.hash_value)
+    e.close()
+    f.close()
+
+def test_case_1_one_existing_blank_node_variant_one():
+    e = open(".\\testfiles\\Incrementation_testing_case_2_1.txt", "r")
+    f = open(".\\testfiles\\Incrementation_testing_case_2_1a.txt", "r")
+    RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
+    RDF.hash_database(RDFgraph)
+    RDFgraph.hash_increment_triple("blank4Personage\tLoves\tOtherJames")
+    RDFgraph2 = RDF.read_RDF_graph(f.read().split('\n'))
+    afterincrement = RDF.hash_database(RDFgraph2)
+    assert (afterincrement == RDFgraph.hash_value)
+    e.close()
+    f.close()
+
+def test_case_2_one_existing_blank_node_variant_one():
+    e = open(".\\testfiles\\Incrementation_testing_case_2_1.txt", "r")
+    f = open(".\\testfiles\\Incrementation_testing_case_2_1b.txt", "r")
+    RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
+    RDF.hash_database(RDFgraph)
+    RDFgraph.hash_increment_triple("OtherJames\tLoves\tblank4Personage")
+    RDFgraph2 = RDF.read_RDF_graph(f.read().split('\n'))
+    afterincrement = RDF.hash_database(RDFgraph2)
+    assert (afterincrement == RDFgraph.hash_value)
+    e.close()
+    f.close()
+
+
+def test_case_1_one_existing_blank_node_variant_two():
+    e = open(".\\testfiles\\Incrementation_testing_case_2_1.txt", "r")
+    f = open(".\\testfiles\\Incrementation_testing_case_2_2a.txt", "r")
+    RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
+    RDF.hash_database(RDFgraph)
+    RDFgraph.hash_increment_triple("blank4Personage\tLoves\tJamesVQ0LQ71")
+    RDFgraph2 = RDF.read_RDF_graph(f.read().split('\n'))
+    afterincrement = RDF.hash_database(RDFgraph2)
+    assert (afterincrement == RDFgraph.hash_value)
+    e.close()
+    f.close()
+
+
+def test_case_2_one_existing_blank_node_variant_two():
+    e = open(".\\testfiles\\Incrementation_testing_case_2_1.txt", "r")
+    f = open(".\\testfiles\\Incrementation_testing_case_2_2b.txt", "r")
+    RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
+    RDF.hash_database(RDFgraph)
+    RDFgraph.hash_increment_triple("JamesVQ0LQ71\tLoves\tblank4Personage")
     RDFgraph2 = RDF.read_RDF_graph(f.read().split('\n'))
     afterincrement = RDF.hash_database(RDFgraph2)
     assert (afterincrement == RDFgraph.hash_value)

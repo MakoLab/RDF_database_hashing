@@ -245,7 +245,7 @@ class RDF_graph:
         if(o.is_blank_node()):
             blank_number+=2
             if(self.contains_bnode(o)):
-                case+=1
+                case+=2
         self.add_RDF_triple(triplet)
 
         if(s.is_blank_node()):
@@ -299,9 +299,37 @@ class RDF_graph:
                 ## we want to remember the exact value of hash of the given connected component
                 self.hash_value = hex(int(self.hash_value, 16) + self.component_hashvalue[s.structure_number])
 
-        elif(case == 1):
-            0;
-        elif(case == 2):
+        #########Case 1 and 2 -- B(G) components split was not altered, but one tree needs to be rehashed.
+        elif(case == 1 or case==2): #Case 1 -- subject is old blank node, case 2 -- object
+            ##Proper labeling
+            if(case == 1):
+                old_blank_node = s
+                other_node = o
+            else:
+                old_blank_node = o
+                other_node = s
+
+            struct_number = old_blank_node.structure_number
+            rehashed_wcc = self.weakly_cc[struct_number]
+            ##altering the wcc if necessary
+            if (other_node.is_blank):
+                other_node.structure_number = struct_number
+                rehashed_wcc.add_node(other_node.name)
+                if(case == 1):
+                    other_node.structure_level = old_blank_node.structure_level + 1
+                    rehashed_wcc.add_edge(old_blank_node,other_node)
+                else:
+                    other_node.structure_level = 0 #in this case other node has no predecessor in this structure.
+                    rehashed_wcc.add_edge(other_node, old_blank_node)
+            wcc_hash_value = int(hashstring(prepare_single_component(self, rehashed_wcc, preparing=False), Hashtype),16)
+            if (other_node.is_blank):
+                self.hash_value= hex(int(self.hash_value, 16) - self.component_hashvalue[struct_number] + wcc_hash_value)
+            else:
+                self.hash_value = hex(int(self.hash_value, 16) - self.component_hashvalue[struct_number] + wcc_hash_value + int(hashstring(prepare_single_triplet(s,p,o)),16))
+            self.component_hashvalue[struct_number] = wcc_hash_value
+
+        #########Case 3 -- B(G) structure has been altered and two structures might need to be merged
+        elif(case == 3):
             0;
 
         self.hash_value = hex(int(self.hash_value,16) % (2**256))
