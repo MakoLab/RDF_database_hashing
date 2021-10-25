@@ -234,6 +234,36 @@ def test_case_3_one_existing_blank_node_and_new_blank_variant_two():
     e.close()
     f.close()
 
+def test_case_4_two_existing_blank_nodes_on_single_DAG():
+    e = open(".\\testfiles\\Incremenation_testing_dual_blank_case.txt", "r")
+    f = open(".\\testfiles\\Incremenation_testing_dual_blank_case_a.txt", "r")
+    RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
+    print('\n\n')
+    RDF.hash_database(RDFgraph, Debug=True)
+    RDF.printwcc(RDFgraph.weakly_cc[0], RDFgraph)
+    RDFgraph.hash_increment_triple("blank1Human Being\tEnjoys\tblank2Creature",Debug=True)
+    print('\n\n')
+    RDFgraph2 = RDF.read_RDF_graph(f.read().split('\n'))
+    afterincrement = RDF.hash_database(RDFgraph2, Debug=True)
+    assert (afterincrement == RDFgraph.hash_value)
+    e.close()
+    f.close()
+
+def test_case_4_two_existing_blank_nodes_on_different_DAGs():
+    e = open(".\\testfiles\\Incremenation_testing_dual_blank_case.txt", "r")
+    f = open(".\\testfiles\\Incremenation_testing_dual_blank_case_b.txt", "r")
+    RDFgraph = RDF.read_RDF_graph(e.read().split('\n'))
+    RDF.hash_database(RDFgraph, Debug=True)
+    print('\n\n\n')
+    RDFgraph.hash_increment_triple("blank3Individual\tOwns\tblank0Person",Debug=True)
+    print('\n\n\n')
+    RDFgraph2 = RDF.read_RDF_graph(f.read().split('\n'))
+    afterincrement = RDF.hash_database(RDFgraph2, Debug=True)
+
+    assert (afterincrement == RDFgraph.hash_value)
+    e.close()
+    f.close()
+
 def test_hashstring():
     assert not (RDF.hashstring("Ania") == RDF.hashstring("Hania"))
 

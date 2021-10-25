@@ -133,6 +133,7 @@ class RDF_node:
     ### where connection is given by a defined predicate
 
     def add_incoming_blank(self,subject, predicate):
+        #print("While reading, added to " + self.name, predicate, subject.name,sep='\t')
         if(subject.name in self.incoming_blanks):
             self.incoming_blanks[subject.name].append(predicate)
         else:
@@ -179,7 +180,7 @@ class RDF_graph:
         s, p, o = read_RDF_triple(triple)  # reads the rdf triple and preserves it in the database structure
         ### Place both object and subject into appropriate parts of RDF graph.
         ### If discussed node is already in a graph, get its reference.
-        if o.is_blank:
+        if (o.is_blank):
             if (o.name not in self.blanks):
                 self.blanks.update({o.name: o})
             o = self.blanks[o.name]
@@ -188,7 +189,7 @@ class RDF_graph:
                 self.standard_nodes.update({o.name: o})
             o = self.standard_nodes[o.name]
 
-        if s.is_blank:
+        if (s.is_blank):
             if (s.name not in self.blanks):
                 self.blanks.update({s.name: s})
             s = self.blanks[s.name]
@@ -343,8 +344,9 @@ class RDF_graph:
             totality_to_be_added = 0
             for triplet in triplets_to_be_rehashed:
                 totality_to_be_added+=int(hashstring(prepare_single_triplet(triplet[0],triplet[1],triplet[2])),16)
-            print(totality_to_subtract, totality_to_be_added)
-            print("Hashed structure value:",wcc_hash_value,sep='\t')
+            if(Debug==True):
+                print(totality_to_subtract, totality_to_be_added)
+                print("Hashed structure value:",wcc_hash_value,sep='\t')
             self.hash_value = hex(int(self.hash_value, 16) - totality_to_subtract + totality_to_be_added)
 
             self.component_hashvalue[struct_number] = wcc_hash_value
@@ -356,31 +358,51 @@ class RDF_graph:
             if(s.structure_number == o.structure_number):
                 struct_number = s.structure_number
                 rehashed_wcc = self.weakly_cc[struct_number]
-                rehashed_wcc.add_edge(s.name,p.name)
-                structure_blanks = {node.name:node for node in self.weakly_cc[struct_number].nodes()}
+                rehashed_wcc.add_edge(s.name, o.name)
+                structure_blanks = {nodename : self.blanks[nodename] for nodename in self.weakly_cc[struct_number].nodes()}
                 if(cycle_detection(structure_blanks)):
                     print("Adding the edge to graph would introduce vicious-cycle!")
                     return False
                 else:
-                    o.structure_level = max(s.structure_level + 1, o.structure_level)
+                    if(Debug):
+                        print('\n')
+                        printwcc(rehashed_wcc, self)
+                        print('\n')
+                    prepare_single_component(self, rehashed_wcc, preparing=True,Debug=True)
                     wcc_hash_value = int(hashstring(prepare_single_component(self, rehashed_wcc, preparing=False), Hashtype),16)
                     self.hash_value= hex(int(self.hash_value, 16) - self.component_hashvalue[struct_number] + wcc_hash_value)
                     self.component_hashvalue[struct_number] = wcc_hash_value
+                    if (Debug == True):
+                        print("Re-hashed structure value:", wcc_hash_value, sep='\t')
+
             else:
                 firstcc = self.weakly_cc[s.structure_number]
+                removed_hashnumber = o.structure_number
                 secondcc = self.weakly_cc[o.structure_number]
-                for node in secondcc.Nodes():
+                for node in secondcc.nodes():
                     self.blanks[node].structure_number = s.structure_number ##Combined sets
                 new_cc = nx.union(firstcc,secondcc)
                 prepare_single_component(self, new_cc, preparing=True)
                 wcc_hash_value = int(hashstring(prepare_single_component(self, new_cc, preparing=False), Hashtype), 16)
-                self.hash_value = hex(int(self.hash_value, 16) - self.weakly_cc[o.structure_number]
-                                      - self.component_hashvalue[s.structure_number] + wcc_hash_value)
+                hashes_to_remove = self.component_hashvalue[removed_hashnumber] + self.component_hashvalue[s.structure_number]
+                if (Debug == True):
+                    print("Removing two structures of total hash value:", self.component_hashvalue[o.structure_number],self.component_hashvalue[s.structure_number],hashes_to_remove, sep='\t')
+                self.hash_value = hex(int(self.hash_value, 16) -hashes_to_remove + wcc_hash_value)
                 self.component_hashvalue[s.structure_number] = wcc_hash_value
-                self.component_hashvalue.pop(o.structure_number)
+                self.component_hashvalue.pop(removed_hashnumber)
+                if (Debug == True):
+                    print("Hashed merged structure value:", wcc_hash_value, sep='\t')
+            totality_to_be_added = 0
+            for triplet in triplets_to_be_rehashed:
+                q=int(hashstring(prepare_single_triplet(triplet[0],triplet[1],triplet[2])),16)
+                if (Debug == True):
+                    print("Rehashing triplet: ",triplet[0].name,triplet[1],triplet[2].name, " to value: ",q,sep='\t')
+                totality_to_be_added+=q
+            self.hash_value = hex(int(self.hash_value, 16) - totality_to_subtract + totality_to_be_added)
 
         ###Apply modulo if the operations have taken us outside of the range of standard hash values.
         self.hash_value = hex(int(self.hash_value,16) % (2**256))
+
 
 
 
@@ -422,6 +444,8 @@ def read_RDF_graph(RDF_array):
 def cycle_detection(BG_graph,original_graph=None):
     queue = QQ.Queue(0) #create a queue for vertices
     visited = []
+    for neighbour in BG_graph.values():
+        neighbour.temporary_degree = neighbour.blank_in_degree
 
     for node in list(BG_graph.values()):
         if node.blank_in_degree == 0:             #place vertices with in_degree equal to 0 on queue
@@ -432,9 +456,9 @@ def cycle_detection(BG_graph,original_graph=None):
     while not queue.empty():
         node = queue.get()
         for neighbour in node.blank_neighbours:
-            BG_graph[neighbour].blank_in_degree -= len(node.blank_neighbours[neighbour])  #decrease the in_degree by a number
+            BG_graph[neighbour].temporary_degree -= len(node.blank_neighbours[neighbour])  #decrease the in_degree by a number
                                                                                           # of edges from node to neighbour
-            if(BG_graph[neighbour].blank_in_degree == 0):                                 #if the in-degree of vertex is 0
+            if(BG_graph[neighbour].temporary_degree == 0):                                 #if the in-degree of vertex is 0
                 queue.put(BG_graph[neighbour])                 #place it at the end of queue
                 if (original_graph != None):
                     original_graph.blanks[BG_graph[neighbour].name].structure_level = original_graph.blanks[node.name].structure_level+1
@@ -549,13 +573,15 @@ def tree_marking(RDF_database, return_as_subgraphs = False):
 ### every node with its level in the DAG structure of blank graph.
 ### Second execution turns component into a string, ready for hashing.
 
-def prepare_single_component(RDFGraph,component,preparing):
+def prepare_single_component(RDFGraph,component,preparing,Debug=False):
     blanks = RDFGraph.blanks
     value_for_component = ""
     priority_queue = QQ.PriorityQueue()
 
     for node in list(component.nodes()):
         name = node
+        if(Debug==True):
+            print(name, blanks[name].blank_in_degree)
         blanks[name].temporary_degree = blanks[name].blank_in_degree
         if blanks[name].blank_in_degree == 0:             #place vertices with blank in_degree equal to 0 on queue
             priority_queue.put((blanks[name].generate_priority_tuple(RDFGraph), blanks[name]))
@@ -654,6 +680,12 @@ def hash_database(RDF_database, Hashtype = 'MD5', Debug=False):
     RDF_database.hash_value = hex(hash_value_for_database % (2**256))
     return RDF_database.hash_value
 ###############################################################
+
+###############################################################
+def printwcc(wcc, RDF_graph):
+    for node in wcc.nodes():
+        print(translate_blank_node(RDF_graph.blanks[node],'s')+'\t'+node)
+
 
 
 ###Time for some test:

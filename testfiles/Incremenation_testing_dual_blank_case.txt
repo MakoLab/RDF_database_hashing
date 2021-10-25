@@ -1,0 +1,12 @@
+blank0Person	Hates	blank2Creature
+blank2Creature	Hates	blank5Anon
+blank3Individual	Hates	blank4Character
+blank0Person	Hates	blank1Human Being
+blank1Human Being	Hates	blank5Anon
+blank0Person	Ignores	blank5Anon
+blank3Individual	Knows	blank6Anonida
+Lucas1B00PV1	Knows	blank4Character
+MiaD4H4Z80	Loves	Lucas1B00PV1
+OliviaS239K83	Ignores	NoahUVR0LR4
+blank3Individual	Likes	AlexanderVSEP582
+blank4Character	Acknowledges	NoahUVR0LR4

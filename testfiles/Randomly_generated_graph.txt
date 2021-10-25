@@ -1,13 +1,13 @@
-blank0Character	Loves	blank2Human Being
-blank0Character	Knows	blank2Human Being
-blank1Character	Ignores	blank4Brunette
-blank1Character	Ignores	blank4Brunette
-blank3Individual	Hates	blank4Brunette
-blank0Character	Loves	blank2Human Being
-blank3Individual	Acknowledges	blank4Brunette
-blank2Human Being	Knows	blank3Individual
-AvaZM89MK0	Enjoys	blank1Character
-Henry5E0ILP1	Ignores	EmmaBADSFQ3
-EmmaBADSFQ3	Enjoys	Henry5E0ILP1
-blank3Individual	Knows	AmeliaF6HRFH2
-AvaZM89MK0	Knows	Henry5E0ILP1
+blank2Brunette	Ignores	blank3Mortal
+blank3Mortal	Loves	blank4Person
+blank0Creature	Loves	blank4Person
+blank1Creature	Enjoys	blank2Brunette
+blank3Mortal	Hates	blank4Person
+blank3Mortal	Hates	blank4Person
+blank3Mortal	Hates	blank4Person
+blank0Creature	Knows	blank1Creature
+BenjaminO7QOQ41	Enjoys	blank3Mortal
+Alexander8N9DHB3	Loves	blank3Mortal
+BenjaminO7QOQ41	Ignores	EvelynXCVV4G0
+AvaR97KKB4	Hates	blank4Person
+AvaR97KKB4	Knows	Alexander8N9DHB3
