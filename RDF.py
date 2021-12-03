@@ -650,7 +650,7 @@ def hashstring(string, Hashtype='MD5'):
 
 ###############################################################
 # Hashes whole RDF database. The general principle is based on
-# Sopek, M., Gradzki, P., Kosowski, W., Kuziski, D., Trójczak,
+# Sopek, M., Gradzki, P., Kosowski, W., Kuziński, D., Trójczak,
 # R., & Trypuz, R. (2018). "GraphChain. Companion of the The
 # Web Conference 2018" on The Web Conference 2018.
 ###
@@ -696,7 +696,7 @@ def hash_database(RDF_database, Hashtype='MD5', Debug=False):
 
 ###############################################################
 
-def readRDFLibGraph(RDFLibGraph):
+def readRDFLibGraph(RDFLibGraph: rdflib.Graph):
     triples = []
     for s, p, o in RDFLibGraph:
         subject = s.n3()
