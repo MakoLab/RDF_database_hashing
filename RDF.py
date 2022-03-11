@@ -3,6 +3,7 @@ import networkx as nx
 import copy
 import hashlib as hlib
 import rdflib
+from time import process_time
 
 ##################################################################
 # Class describing a single RDF node in a given RDF graph.
@@ -723,12 +724,41 @@ def printwcc(wcc, RDF_graph):
 
 # Time for some test:
 g = rdflib.Graph()
+print("==================================")
+
+print("Rdflib parsing:", end=" ")
+start_time = process_time()
 g.parse(".\\rdf\\2594007XIACKNMUAW223.nt", format="ttl")
+print("%s seconds" % (process_time() - start_time))
+print(f"Graph has {len(g)} triples.")
+
+print("Conveting to abstract triples:", end=" ")
+start_time = process_time()
 triples = readRDFLibGraph(g)
+print("%s seconds" % (process_time() - start_time))
+
+print("Reading triples into abstract graph:", end=" ")
+start_time = process_time()
 RDFgraph = read_RDF_graph(triples)
+print("%s seconds" % (process_time() - start_time))
+
 #f = open(".\\testfiles\\problematic_graph.txt", "r")
 #RDFgraph = read_RDF_graph(f.read().split('\n'))
+
+print("Deepcopy of blank nodes:", end=" ")
+start_time = process_time()
 BG = copy.deepcopy(RDFgraph.blanks)
+print("%s seconds" % (process_time() - start_time))
+
+print("Cycle detection:", end=" ")
+start_time = process_time()
 cycle = cycle_detection(BG)
-print(hash_database(RDFgraph, 'MD5'))
+print("%s seconds" % (process_time() - start_time))
+print(f"Graph has {'no' if not cycle else ''} vicious circles")
+
+print("Hashing graph:", end=" ")
+start_time = process_time()
+hash = hash_database(RDFgraph, 'sha256')
+print("%s seconds" % (process_time() - start_time))
+print("Graph hash:", hash)
 #f.close()
