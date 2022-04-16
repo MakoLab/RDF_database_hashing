@@ -1,9 +1,11 @@
+#!/usr/bin/env python
 import queue as QQ
 import networkx as nx
 import copy
 import hashlib as hlib
 import rdflib
 from time import process_time
+import argparse
 
 ##################################################################
 # Class describing a single RDF node in a given RDF graph.
@@ -722,43 +724,56 @@ def printwcc(wcc, RDF_graph):
     for node in wcc.nodes():
         print(translate_blank_node(RDF_graph.blanks[node], 's') + '\t' + node)
 
-# Time for some test:
-g = rdflib.Graph()
-print("==================================")
+parser = argparse.ArgumentParser(
+    description='Vicious Circle Free Interwoven Hash', add_help=False, prog='vcfih')
+informative = parser.add_argument_group('Informative arguments')
+informative.add_argument("-h", "--help", help='show this help message and exit', action="help")
 
-print("Rdflib parsing:", end=" ")
-start_time = process_time()
-g.parse(".\\rdf\\2594007XIACKNMUAW223.nt", format="ttl")
-print("%s seconds" % (process_time() - start_time))
-print(f"Graph has {len(g)} triples.")
+required = parser.add_argument_group('Required arguments')
+required.add_argument("-f", "--format", choices=['turtle', 'ntriples', 'xml'],
+    help="input format", required=True)
+required.add_argument('file', type=str, help='RDF file')
 
-print("Conveting to abstract triples:", end=" ")
-start_time = process_time()
-triples = readRDFLibGraph(g)
-print("%s seconds" % (process_time() - start_time))
+args = parser.parse_args()
 
-print("Reading triples into abstract graph:", end=" ")
-start_time = process_time()
-RDFgraph = read_RDF_graph(triples)
-print("%s seconds" % (process_time() - start_time))
+if args.file:
+    # Time for some test:
+    g = rdflib.Graph()
+    print("==================================")
 
-#f = open(".\\testfiles\\problematic_graph.txt", "r")
-#RDFgraph = read_RDF_graph(f.read().split('\n'))
+    print("Rdflib parsing:", end=" ")
+    start_time = process_time()
+    g.parse(args.file, format=args.format)
+    print("%s seconds" % (process_time() - start_time))
+    print(f"Graph has {len(g)} triples.")
 
-print("Deepcopy of blank nodes:", end=" ")
-start_time = process_time()
-BG = copy.deepcopy(RDFgraph.blanks)
-print("%s seconds" % (process_time() - start_time))
+    print("Conveting to abstract triples:", end=" ")
+    start_time = process_time()
+    triples = readRDFLibGraph(g)
+    print("%s seconds" % (process_time() - start_time))
 
-print("Cycle detection:", end=" ")
-start_time = process_time()
-cycle = cycle_detection(BG)
-print("%s seconds" % (process_time() - start_time))
-print(f"Graph has {'no' if not cycle else ''} vicious circles")
+    print("Reading triples into abstract graph:", end=" ")
+    start_time = process_time()
+    RDFgraph = read_RDF_graph(triples)
+    print("%s seconds" % (process_time() - start_time))
 
-print("Hashing graph:", end=" ")
-start_time = process_time()
-hash = hash_database(RDFgraph, 'sha256')
-print("%s seconds" % (process_time() - start_time))
-print("Graph hash:", hash)
-#f.close()
+    #f = open(".\\testfiles\\problematic_graph.txt", "r")
+    #RDFgraph = read_RDF_graph(f.read().split('\n'))
+
+    print("Deepcopy of blank nodes:", end=" ")
+    start_time = process_time()
+    BG = copy.deepcopy(RDFgraph.blanks)
+    print("%s seconds" % (process_time() - start_time))
+
+    print("Cycle detection:", end=" ")
+    start_time = process_time()
+    cycle = cycle_detection(BG)
+    print("%s seconds" % (process_time() - start_time))
+    print(f"Graph has {'no' if not cycle else ''} vicious circles")
+
+    print("Hashing graph:", end=" ")
+    start_time = process_time()
+    hash = hash_database(RDFgraph, 'sha256')
+    print("%s seconds" % (process_time() - start_time))
+    print("Graph hash:", hash)
+    #f.close()
