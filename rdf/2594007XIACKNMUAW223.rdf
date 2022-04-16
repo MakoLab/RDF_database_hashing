@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223#lei">
+    <ns0:lastUpdateDate xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-12-19T07:03:10+01:00</ns0:lastUpdateDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223#lei">
+    <ns0:registrationStatus xmlns:ns0="http://lei.info/voc/l1/" rdf:resource="http://lei.info/voc/l1/Issued"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223#lei">
+    <ns0:leiCode xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2594007XIACKNMUAW223</ns0:leiCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223#lei">
+    <ns0:initialRegistrationDate xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2015-01-22T18:20:38+01:00</ns0:initialRegistrationDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223#lei">
+    <ns0:identifies xmlns:ns0="http://lei.info/voc/l1/" rdf:resource="http://lei.info/2594007XIACKNMUAW223"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223#lei">
+    <rdf:type rdf:resource="http://lei.info/voc/l1/LegalEntityIdentifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223#lei">
+    <ns0:managingLOU xmlns:ns0="http://lei.info/voc/l1/" rdf:resource="http://lei.info/259400L3KBYEVNHEJF55"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223#lei">
+    <ns0:nextRenewalDate xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-01-19T18:20:37+01:00</ns0:nextRenewalDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:preferredASCIITransliteratedLegalName xmlns:ns0="http://lei.info/voc/l1/" xml:lang="pl">MAKOLAB SPOLKA AKCYJNA</ns0:preferredASCIITransliteratedLegalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:identifiedBy xmlns:ns0="http://lei.info/voc/l1/" rdf:resource="http://lei.info/2594007XIACKNMUAW223#lei"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:entityLegalFormCode xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FJ0E</ns0:entityLegalFormCode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:legalAddress xmlns:ns0="http://lei.info/voc/l1/" rdf:nodeID="genid1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:registrationAuthority xmlns:ns0="http://lei.info/voc/l1/" rdf:nodeID="genid2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:legalEntityStatus xmlns:ns0="http://lei.info/voc/l1/" rdf:resource="http://lei.info/voc/l1/Active"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:validationSource xmlns:ns0="http://lei.info/voc/l1/" rdf:resource="http://lei.info/voc/l1/FullyCorroborated"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:legalName xmlns:ns0="http://lei.info/voc/l1/" xml:lang="pl">MAKOLAB SPÓŁKA AKCYJNA</ns0:legalName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:primaryValidationAuthority xmlns:ns0="http://lei.info/voc/l1/" rdf:nodeID="genid3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <rdf:type rdf:resource="http://lei.info/voc/l1/LegalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:headquartersAddress xmlns:ns0="http://lei.info/voc/l1/" rdf:nodeID="genid4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:isParentLegalEntityIn xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/2594007XIACKNMUAW223">
+    <ns0:isParentLegalEntityIn xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <ns0:region xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PL-10</ns0:region>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <ns0:streetAddress xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ŁÓDŹ DEMOKRATYCZNA 46</ns0:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <ns0:country xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PL</ns0:country>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <rdf:type rdf:resource="http://lei.info/voc/l1/Address"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <ns0:city xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ŁÓDŹ</ns0:city>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <ns0:addressNumber xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">46</ns0:addressNumber>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <ns0:postalCode xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">93-430</ns0:postalCode>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <ns0:region xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PL-10</ns0:region>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <ns0:streetAddress xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ŁÓDŹ DEMOKRATYCZNA 46</ns0:streetAddress>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <ns0:country xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PL</ns0:country>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <rdf:type rdf:resource="http://lei.info/voc/l1/Address"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <ns0:city xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ŁÓDŹ</ns0:city>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <ns0:addressNumber xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">46</ns0:addressNumber>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <ns0:postalCode xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">93-430</ns0:postalCode>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid2">
+    <ns0:registrationAuthorityID xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RA000484</ns0:registrationAuthorityID>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid2">
+    <ns0:registrationAuthorityEntityID xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0000289179</ns0:registrationAuthorityEntityID>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid2">
+    <rdf:type rdf:resource="http://lei.info/voc/l1/RegistrationAuthority"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid3">
+    <ns0:validationAuthorityID xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RA000484</ns0:validationAuthorityID>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid3">
+    <rdf:type rdf:resource="http://lei.info/voc/l1/ValidationAuthority"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid3">
+    <ns0:validationAuthorityEntityID xmlns:ns0="http://lei.info/voc/l1/" rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0000289179</ns0:validationAuthorityEntityID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:nextRenewalDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-12-11T17:53:12.892Z</ns0:nextRenewalDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:validationDocument xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/voc/l2/Supplied"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:registrationStatus xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/voc/l2/Published"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:relationshipPeriod xmlns:ns0="http://lei.info/voc/l2/" rdf:nodeID="genid5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:relationshipPeriod xmlns:ns0="http://lei.info/voc/l2/" rdf:nodeID="genid6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:relationshipType xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/voc/l2/IsUltimatelyConsolidatedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:initialRegistrationDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-12-06T21:05:05.859Z</ns0:initialRegistrationDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:managingLOU xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/5493001KJTIIGC8Y1R12"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:childLegalEntity xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/254900UIZS15MTA7H075"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/Relationship"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:relationshipQuantifier xmlns:ns0="http://lei.info/voc/l2/" rdf:nodeID="genid7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:relationshipStatus xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/voc/l2/Active"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB">
+    <ns0:lastUpdateDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-12-11T17:53:12.984Z</ns0:lastUpdateDate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid7">
+    <ns0:measurementMethod xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/voc/l2/AccountingConsolidation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid7">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/RelationshipQuantifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid7">
+    <ns0:quantifierAmount xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</ns0:quantifierAmount>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid5">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/RelationshipPeriod"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid5">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/RelationshipPeriodType"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid5">
+    <ns0:startDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-04-29T00:00:00Z</ns0:startDate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid6">
+    <ns0:endDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-31T00:00:00Z</ns0:endDate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid6">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/RelationshipPeriodType"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid6">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/AccountingPeriod"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid6">
+    <ns0:startDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-01-01T00:00:00Z</ns0:startDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:nextRenewalDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-12-11T17:53:12.892Z</ns0:nextRenewalDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:validationDocument xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/voc/l2/Supplied"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:registrationStatus xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/voc/l2/Published"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:relationshipPeriod xmlns:ns0="http://lei.info/voc/l2/" rdf:nodeID="genid8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:relationshipPeriod xmlns:ns0="http://lei.info/voc/l2/" rdf:nodeID="genid9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:relationshipType xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/voc/l2/IsDirectlyConsolidatedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:initialRegistrationDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-12-06T21:05:05.859Z</ns0:initialRegistrationDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:managingLOU xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/5493001KJTIIGC8Y1R12"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:childLegalEntity xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/254900UIZS15MTA7H075"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/Relationship"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:relationshipQuantifier xmlns:ns0="http://lei.info/voc/l2/" rdf:nodeID="genid10"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:relationshipStatus xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/voc/l2/Active"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB">
+    <ns0:lastUpdateDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-12-11T17:53:12.984Z</ns0:lastUpdateDate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid10">
+    <ns0:measurementMethod xmlns:ns0="http://lei.info/voc/l2/" rdf:resource="http://lei.info/voc/l2/AccountingConsolidation"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid10">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/RelationshipQuantifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid10">
+    <ns0:quantifierAmount xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</ns0:quantifierAmount>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid8">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/RelationshipPeriod"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid8">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/RelationshipPeriodType"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid8">
+    <ns0:startDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-04-29T00:00:00Z</ns0:startDate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid9">
+    <ns0:endDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-31T00:00:00Z</ns0:endDate>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid9">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/RelationshipPeriodType"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid9">
+    <rdf:type rdf:resource="http://lei.info/voc/l2/AccountingPeriod"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid9">
+    <ns0:startDate xmlns:ns0="http://lei.info/voc/l2/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-01-01T00:00:00Z</ns0:startDate>
+  </rdf:Description>
+</rdf:RDF>

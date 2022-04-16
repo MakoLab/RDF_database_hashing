@@ -1,0 +1,100 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB>
+    <http://lei.info/voc/l2/childLegalEntity> <http://lei.info/254900UIZS15MTA7H075> ;
+    <http://lei.info/voc/l2/initialRegistrationDate> "2017-12-06T21:05:05.859Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://lei.info/voc/l2/lastUpdateDate> "2018-12-11T17:53:12.984Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://lei.info/voc/l2/managingLOU> <http://lei.info/5493001KJTIIGC8Y1R12> ;
+    <http://lei.info/voc/l2/nextRenewalDate> "2019-12-11T17:53:12.892Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://lei.info/voc/l2/registrationStatus> <http://lei.info/voc/l2/Published> ;
+    <http://lei.info/voc/l2/relationshipPeriod> [
+        <http://lei.info/voc/l2/startDate> "2016-04-29T00:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        a <http://lei.info/voc/l2/RelationshipPeriod>, <http://lei.info/voc/l2/RelationshipPeriodType>
+    ], [
+        <http://lei.info/voc/l2/endDate> "2016-12-31T00:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://lei.info/voc/l2/startDate> "2016-01-01T00:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        a <http://lei.info/voc/l2/AccountingPeriod>, <http://lei.info/voc/l2/RelationshipPeriodType>
+    ] ;
+    <http://lei.info/voc/l2/relationshipQuantifier> [
+        <http://lei.info/voc/l2/measurementMethod> <http://lei.info/voc/l2/AccountingConsolidation> ;
+        <http://lei.info/voc/l2/quantifierAmount> 0.0 ;
+        a <http://lei.info/voc/l2/RelationshipQuantifier>
+    ] ;
+    <http://lei.info/voc/l2/relationshipStatus> <http://lei.info/voc/l2/Active> ;
+    <http://lei.info/voc/l2/relationshipType> <http://lei.info/voc/l2/IsDirectlyConsolidatedBy> ;
+    <http://lei.info/voc/l2/validationDocument> <http://lei.info/voc/l2/Supplied> ;
+    a <http://lei.info/voc/l2/Relationship> .
+
+<http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB>
+    <http://lei.info/voc/l2/childLegalEntity> <http://lei.info/254900UIZS15MTA7H075> ;
+    <http://lei.info/voc/l2/initialRegistrationDate> "2017-12-06T21:05:05.859Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://lei.info/voc/l2/lastUpdateDate> "2018-12-11T17:53:12.984Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://lei.info/voc/l2/managingLOU> <http://lei.info/5493001KJTIIGC8Y1R12> ;
+    <http://lei.info/voc/l2/nextRenewalDate> "2019-12-11T17:53:12.892Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://lei.info/voc/l2/registrationStatus> <http://lei.info/voc/l2/Published> ;
+    <http://lei.info/voc/l2/relationshipPeriod> [
+        <http://lei.info/voc/l2/startDate> "2016-04-29T00:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        a <http://lei.info/voc/l2/RelationshipPeriod>, <http://lei.info/voc/l2/RelationshipPeriodType>
+    ], [
+        <http://lei.info/voc/l2/endDate> "2016-12-31T00:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        <http://lei.info/voc/l2/startDate> "2016-01-01T00:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        a <http://lei.info/voc/l2/AccountingPeriod>, <http://lei.info/voc/l2/RelationshipPeriodType>
+    ] ;
+    <http://lei.info/voc/l2/relationshipQuantifier> [
+        <http://lei.info/voc/l2/measurementMethod> <http://lei.info/voc/l2/AccountingConsolidation> ;
+        <http://lei.info/voc/l2/quantifierAmount> 0.0 ;
+        a <http://lei.info/voc/l2/RelationshipQuantifier>
+    ] ;
+    <http://lei.info/voc/l2/relationshipStatus> <http://lei.info/voc/l2/Active> ;
+    <http://lei.info/voc/l2/relationshipType> <http://lei.info/voc/l2/IsUltimatelyConsolidatedBy> ;
+    <http://lei.info/voc/l2/validationDocument> <http://lei.info/voc/l2/Supplied> ;
+    a <http://lei.info/voc/l2/Relationship> .
+
+<http://lei.info/2594007XIACKNMUAW223>
+    <http://lei.info/voc/l1/entityLegalFormCode> "FJ0E"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    <http://lei.info/voc/l1/headquartersAddress> [
+        <http://lei.info/voc/l1/addressNumber> "46"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/city> "ŁÓDŹ"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/country> "PL"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/postalCode> "93-430"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/region> "PL-10"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/streetAddress> "ŁÓDŹ DEMOKRATYCZNA 46"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        a <http://lei.info/voc/l1/Address>
+    ] ;
+    <http://lei.info/voc/l1/identifiedBy> <http://lei.info/2594007XIACKNMUAW223#lei> ;
+    <http://lei.info/voc/l1/legalAddress> [
+        <http://lei.info/voc/l1/addressNumber> "46"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/city> "ŁÓDŹ"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/country> "PL"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/postalCode> "93-430"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/region> "PL-10"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/streetAddress> "ŁÓDŹ DEMOKRATYCZNA 46"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        a <http://lei.info/voc/l1/Address>
+    ] ;
+    <http://lei.info/voc/l1/legalEntityStatus> <http://lei.info/voc/l1/Active> ;
+    <http://lei.info/voc/l1/legalName> "MAKOLAB SPÓŁKA AKCYJNA"@pl ;
+    <http://lei.info/voc/l1/preferredASCIITransliteratedLegalName> "MAKOLAB SPOLKA AKCYJNA"@pl ;
+    <http://lei.info/voc/l1/primaryValidationAuthority> [
+        <http://lei.info/voc/l1/validationAuthorityEntityID> "0000289179"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/validationAuthorityID> "RA000484"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        a <http://lei.info/voc/l1/ValidationAuthority>
+    ] ;
+    <http://lei.info/voc/l1/registrationAuthority> [
+        <http://lei.info/voc/l1/registrationAuthorityEntityID> "0000289179"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        <http://lei.info/voc/l1/registrationAuthorityID> "RA000484"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        a <http://lei.info/voc/l1/RegistrationAuthority>
+    ] ;
+    <http://lei.info/voc/l1/validationSource> <http://lei.info/voc/l1/FullyCorroborated> ;
+    <http://lei.info/voc/l2/isParentLegalEntityIn> <http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IDCB>, <http://lei.info/254900UIZS15MTA7H075-2594007XIACKNMUAW223-IUCB> ;
+    a <http://lei.info/voc/l1/LegalEntity> .
+
+<http://lei.info/2594007XIACKNMUAW223#lei>
+    <http://lei.info/voc/l1/identifies> <http://lei.info/2594007XIACKNMUAW223> ;
+    <http://lei.info/voc/l1/initialRegistrationDate> "2015-01-22T18:20:38+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://lei.info/voc/l1/lastUpdateDate> "2018-12-19T07:03:10+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://lei.info/voc/l1/leiCode> "2594007XIACKNMUAW223"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    <http://lei.info/voc/l1/managingLOU> <http://lei.info/259400L3KBYEVNHEJF55> ;
+    <http://lei.info/voc/l1/nextRenewalDate> "2020-01-19T18:20:37+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://lei.info/voc/l1/registrationStatus> <http://lei.info/voc/l1/Issued> ;
+    a <http://lei.info/voc/l1/LegalEntityIdentifier> .
+
