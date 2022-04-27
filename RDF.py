@@ -240,7 +240,7 @@ class RDF_graph:
         else:
             return False
 
-    def hash_increment_triple(self, triplet, Hashtype='MD5', Debug=False):
+    def hash_increment_triple(self, triplet, Hashtype='md5', Debug=False):
         s, p, o = read_RDF_triple(triplet)
         case = 0
         blank_number = 0
@@ -635,16 +635,26 @@ def prepare_single_component(RDFGraph, component, preparing, Debug=False):
 # Prepares a hash from a given string, according to the
 # selected hashing algorithm. Returns value in hexadecimal.
 
-def hashstring(string, Hashtype='MD5'):
+def hashstring(string, Hashtype='md5'):
     # Some other variants can be easily implemented as well.
     total_hash = None
-    if (Hashtype == 'MD5'):
+    if (Hashtype == 'md5'):
         total_hash = hlib.md5()
     elif (Hashtype == 'sha256'):
         total_hash = hlib.sha256()
     elif (Hashtype == 'sha512'):
         total_hash = hlib.sha512()
-
+    elif (Hashtype == 'sha1'):
+        total_hash = hlib.sha1()
+    elif (Hashtype == 'blake2b'):
+        total_hash = hlib.blake2b()
+    elif (Hashtype == 'blake2s'):
+        total_hash = hlib.blake2s()
+    elif (Hashtype == 'sha3_256'):
+        total_hash = hlib.sha3_256()
+    elif (Hashtype == 'sha3_512'):
+        total_hash = hlib.sha3_512()
+    
     total_hash.update(string.encode('utf-8'))
     return total_hash.hexdigest()
 
@@ -661,7 +671,7 @@ def hashstring(string, Hashtype='MD5'):
 # in the paper above is the way we approach the problem of
 # hashing blank nodes structures.
 
-def hash_database(RDF_database, Hashtype='MD5', Debug=False):
+def hash_database(RDF_database, Hashtype='md5', Debug=False):
     hash_value_for_database = 0
 
     # Mark weakly connected components of RDF database and get them:
@@ -730,11 +740,21 @@ informative = parser.add_argument_group('Informative arguments')
 informative.add_argument("-h", "--help", help='show this help message and exit', action="help")
 
 required = parser.add_argument_group('Required arguments')
-required.add_argument("-f", "--format", choices=['turtle', 'ntriples', 'xml'],
-    help="input format", required=True)
+required.add_argument("-f", "--format", choices=['turtle', 'ttl', 'n3', 'notation3', 'ntriples', 'nt', 'n-triples', 'rdfxml', 'xml', 'jsonld', 'json-ld', 'json'],
+    help="input format: N-Triples: nt, ntriples, n-triples | Turtle: turtle, ttl, n3, notation3 | RDF/XML: xml, rdfxml | JSON-LD: json, json-ld, jsonld", required=True)
+required.add_argument("-a", "--algorithm", choices=['md5', 'sha1', 'sha256', 'sha512', 'sha3_256', 'sha3_512', 'blake2b', 'blake2s'],
+    help="hash function: MD5, SHA1, SHA2 (SHA256, SHA512), SHA3 (SHA3 256, SHA 512), BLAKE2 (BLAKE2b, BLAKE2s)", required=True)
 required.add_argument('file', type=str, help='RDF file')
 
 args = parser.parse_args()
+
+if args.format == 'turtle' or args.format == 'ttl' or args.format == 'n3' or args.format == 'notation3' or args.format == 'ntriples' or args.format == 'nt':
+    serialization = 'turtle'
+elif args.format == 'xml' or args.format == 'rdfxml':
+    serialization = 'xml'
+elif args.format == 'json' or args.format == 'json-ld' or args.format == 'jsonld':
+    serialization = 'json-ld'
+
 
 if args.file:
     # Time for some test:
@@ -743,7 +763,7 @@ if args.file:
 
     print("Rdflib parsing:", end=" ")
     start_time = process_time()
-    g.parse(args.file, format=args.format)
+    g.parse(args.file, format=serialization)
     print("%s seconds" % (process_time() - start_time))
     print(f"Graph has {len(g)} triples.")
 
@@ -773,7 +793,7 @@ if args.file:
 
     print("Hashing graph:", end=" ")
     start_time = process_time()
-    hash = hash_database(RDFgraph, 'sha256')
+    hash = hash_database(RDFgraph, args.algorithm)
     print("%s seconds" % (process_time() - start_time))
     print("Graph hash:", hash)
     #f.close()
